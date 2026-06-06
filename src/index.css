@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Noto Sans Thai", "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-primary: #1e293b;
+  --color-primary-light: #334155;
+  --color-secondary: #64748b;
+  --color-accent: #3b82f6;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900;
+}
+
+/* Print Styles */
+@media print {
+  @page {
+    margin: 0;
+    size: 80mm auto;
+  }
+  
+  body * {
+    visibility: hidden;
+  }
+
+  #printable-receipt, #printable-receipt * {
+    visibility: visible;
+  }
+
+  #printable-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0 !important;
+    padding: 5mm !important;
+    border: none !important;
+    background: white !important;
+    color: black !important;
+    font-family: "Noto Sans Thai", "Inter", sans-serif;
+    font-size: 10pt !important;
+  }
+
+  /* Force colors to show in print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
